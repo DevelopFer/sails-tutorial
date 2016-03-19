@@ -1,0 +1,43 @@
+
+
+<style type="text/css">
+	.login-form{
+		margin-top:11%;
+		border:1px solid red;
+
+	}
+</style>
+<div class="jumbotron col-md-5 col-md-offset-4 login-form">
+	<% if(flash && flash.err){%> <!-- si hay errores los imprimimos iterando -->
+		<ul class="list-group">
+			<% Object.keys(flash.err).forEach(function(error){%>
+			<li class="alert alert-danger">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<%= JSON.stringify(flash.err[error])%>
+			</li>
+			<% }) %>		
+		</ul>
+	<%}%>
+	<form action="/user/create" method="post" accept="charset-utf8">
+		<h2 class="text-center">Create an Account</h2>
+	  <div class="form-group">
+	  	<input type="text" class="form-control input-sm" name="name" placeholder="your name..." required>
+	  </div>
+	  <div class="form-group">
+	  	<input type="text" class="form-control input-sm" name="title" placeholder="your title..." required>
+	  </div>
+	  <div class="form-group">
+	  	<input type="text" class="form-control input-sm" name="email" placeholder="your email..." required>
+	  </div>
+	  <div class="form-group">
+	  	<input type="password" class="form-control input-sm" name="password" placeholder="your password..." required>
+	  </div>
+	  <div class="form-group">
+	  	<input type="password" class="form-control input-sm" name="encryptedPassword" placeholder="encryptedPassword" required>
+	  </div>
+	  <div class="form-group">
+	  <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+	  <input type="hidden" name="_csrf" value="<%= _csrf%>">
+	  </div>
+	</form>
+</div>

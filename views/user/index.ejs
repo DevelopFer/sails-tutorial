@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-12">
+		<h2>Users</h2>
+	</div>
+	<div class="col-md-12">
+		<table class="table table-responsive table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Title</th>
+					<th>Email</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% _.each(users,function(user){%>
+					<tr data-id="<%=user.id%>" data-model="user">
+						<td><%=user.id%></td>
+						<td><%=user.name%></td>
+						<td><%=user.title%></td>
+						<td><%=user.email%></td>
+						<td><a href="/user/show/<%=user.id%>" class="btn btn-xs btn-primary">Show</a></td>
+						<td><a href="/user/edit/<%=user.id%>" class="btn btn-xs btn-warning">Edit</a></td>
+						<td><a href="/user/destroy/<%=user.id%>" class="btn btn-xs btn-danger">Delete</a></td>
+					</tr>
+				<%});%>
+			</tbody>
+		</table>
+	</div>
+</div>
