@@ -9,6 +9,17 @@
 				<div class="form-group">
 					<input class="input-sm form-control" name="title" value="<%=user.title%>" >
 				</div>
+				<%if(session.authenticated && session.User.admin){%>
+					<div class="form-group">
+					<%if(user.admin){%>
+						<input type="hidden" name="admin" value="unchecked">
+						<label class="checkbox"><input type="checkbox" name="admin" checked> Admin</label>
+					<%} else {%>
+						<input type="hidden" name="admin" value="unchecked">
+						<label class="checkbox"><input type="checkbox" name="admin"> Admin</label>
+					<%}  %>
+					</div>
+				<%}%>
 				<div class="form-group">
 					<input class="input-sm form-control" name="email" value="<%= user.email%>">
 				</div>

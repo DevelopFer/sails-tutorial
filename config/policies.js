@@ -27,6 +27,14 @@ module.exports.policies = {
   ***************************************************************************/
 
   '*':'flash',
+  user:{
+    'new':"flash",//will continue using the flash policy
+    create:"flash",
+    show:"userCanSeeProfile",
+    edit:"userCanSeeProfile",
+    update:'userCanSeeProfile',
+    '*':"admin"//and any other action from the user needs to use the authenticated policy
+  },
 
   /***************************************************************************
   *                                                                          *

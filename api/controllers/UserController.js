@@ -65,6 +65,7 @@ module.exports = {
 		});
 	},
 	index:function(req,res,next){
+
 		User.find(function usersFounded(err,users){
 			if (err) {
 				return next(err);
